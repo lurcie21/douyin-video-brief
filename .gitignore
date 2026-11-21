@@ -1,0 +1,22 @@
+# 本机环境与产物，一律不入库
+env.local.sh
+scripts/env.local.sh
+
+# 模型权重（SenseVoice 约 239 MB，按需自行下载）
+models/
+*.onnx
+
+# 流水线产物
+tmp-douyin/
+*.f32
+*.wav
+*.mp4
+*.srt
+*.json
+
+# 虚拟环境 / 缓存
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
