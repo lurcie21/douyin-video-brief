@@ -24,7 +24,7 @@ token 消耗控制在 5 K 以内（两段式：先章节卡骨架，再按章取
 
 ### 步骤 0：preflight（必须 ≤10 s，失败立刻停）
 ```bash
-bash ~/.agents/skills/douyin-video-brief/scripts/preflight.sh
+bash ~/.agents/skills/douyin-video-brief/scripts/env.sh '"$PY" ~/.agents/skills/douyin-video-brief/scripts/preflight.py --no-f32'
 ```
 检查四件事，任一失败立刻报「预检失败」并停止（**不要把错误留到 5 分钟后再炸**）：
 1. `import faster_whisper, ctranslate2` 可导入
