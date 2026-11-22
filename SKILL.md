@@ -18,7 +18,7 @@ token 消耗控制在 5 K 以内（两段式：先章节卡骨架，再按章取
 | 快稿通道 | `sherpa-onnx==2.0.2` + `sherpa-onnx-core==2.0.2`（SenseVoiceSmall int8，12 线程） |
 | pip 源 | 一律加 `-i https://pypi.tuna.tsinghua.edu.cn/simple`（默认源实测卡 10 分钟） |
 | 模型镜像 | `export HF_ENDPOINT=https://hf-mirror.com`（skill 里每次显式 echo 一次） |
-| 线程 | `cpu_threads=12` / `num_threads=12`（18 逻辑核时的实测最优） |
+| 线程 | `cpu_threads=12` / `num_threads=12`（按本机核数给；8 核以下减半，别超物理核数） |
 
 ## 1. 五步流程
 
@@ -107,7 +107,7 @@ SenseVoiceSmall 出中文骨架快稿；**命中率低于阈值时必须标注�
 | 取流拿不到 `play_addr` | 页面未登录 / 接口字段变更 | 提示用户登录浏览器后重试；不要绕风控 |
 | 转写术语全错 | 用了 SenseVoice 快稿 | 快稿仅作骨架，可引用稿必须跑步骤 3 |
 
-## 4. 实测基线（2026-11-21，本机 Ultra 5 125H / 18 核 / 无 GPU，899 s 视频）
+## 4. 实测基线（2026-11-21，无独显笔记本 CPU int8，12 线程，899 s 视频）
 
 | 环节 | 改造前 | 现在 | 说明 |
 |---|---|---|---|
